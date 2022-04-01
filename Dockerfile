@@ -2,6 +2,8 @@ FROM python:3.9
 
 WORKDIR /code
 
+COPY ./app /app
+
 # Install Poetry
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
     cd /usr/local/bin && \
@@ -17,4 +19,4 @@ RUN bash -c "if [ $INSTALL_DEV == 'true' ] ; then poetry install --no-root ; els
 
 ENV PYTHONPATH=/code
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+CMD ["bash", "/code/app/start.sh"]
