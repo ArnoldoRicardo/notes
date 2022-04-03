@@ -21,6 +21,7 @@ wait_seconds = 1
 def init() -> None:
     try:
         # Try to create session to check if DB is awake
+        __import__('ipdb').set_trace()
         db = SessionLocal()
         db.execute("SELECT 1")
     except Exception as e:
@@ -29,6 +30,7 @@ def init() -> None:
 
 
 def main() -> None:
+    __import__('ipdb').set_trace()
     logger.info("Initializing service")
     init()
     logger.info("Service finished initializing")
