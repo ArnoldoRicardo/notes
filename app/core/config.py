@@ -1,11 +1,11 @@
 import secrets
 
-from pydantic import BaseSettings
+from pydantic import AnyHttpUrl, BaseSettings
 
 
 class Settings(BaseSettings):
     DATABASE_URL: str
-    SECRET: secrets.token_urlsafe(32)
+    SECRET: str = secrets.token_urlsafe(32)
 
     class Config:
         case_sensitive = True

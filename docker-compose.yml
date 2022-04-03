@@ -10,4 +10,11 @@ services:
       - 8080:8080
     env_file:
       - .env
-
+  db:
+    image: postgres
+    ports:
+      - "2345:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "mypassword"
+      POSTGRES_DB: "orders_api_db"
