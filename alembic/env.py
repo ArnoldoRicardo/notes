@@ -1,8 +1,7 @@
 from logging.config import fileConfig
 from os import getenv
 
-from app.database import Base
-from sqlalchemy import engine_from_config, pool
+from app.db.base import Base
 
 from alembic import context
 
@@ -58,7 +57,7 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-    from app.database import engine
+    from app.db.session import engine
     connectable = engine
     with connectable.connect() as connection:
         context.configure(

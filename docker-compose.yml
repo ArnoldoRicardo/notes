@@ -7,7 +7,7 @@ services:
       args:
         INSTALL_DEV: ${INSTALL_DEV-false}
     volumes:
-      - ./app:/code/app
+      - ./:/code
     ports:
       - 8080:8080
     env_file:
