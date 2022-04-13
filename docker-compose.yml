@@ -4,6 +4,8 @@ services:
   api:
     build:
       context: .
+      args:
+        INSTALL_DEV: ${INSTALL_DEV-false}
     volumes:
       - ./app:/code/app
     ports:

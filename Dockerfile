@@ -4,6 +4,10 @@ WORKDIR /code
 
 COPY ./app /app
 
+# copy migrations
+COPY ./alembic /code/alembic/
+COPY ./alembic.ini /code/alembic.ini
+
 # Install Poetry
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
     cd /usr/local/bin && \
